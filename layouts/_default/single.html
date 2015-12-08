@@ -3,39 +3,40 @@
 
 <title>{{ .Title }} - {{ .Site.Title }}</title>
 
-<div class="container post-wrapper">
-  <div class="row">
-	<div class="eight columns offset-by-two">
-	  <div id="post-title">
-		<p class="footnote">
-		  <!--<time class="pull-right post-list">{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}</time>-->
-		  <time class="">{{ .Date.Format "2006-01-02" }}</time>
-		  {{ $baseurl := .Site.BaseUrl }}
-		  {{ if or .Params.tags .Params.categories .Params.series }}
-		  |
-		  {{ end }}
-		  {{ if isset .Params "tags" }}
-		  tags:{{ range .Params.tags }}<a href="{{ $baseurl }}/tags/{{ . | urlize }}">{{ . }}</a> {{ end }}
-		  {{ end }}
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
 
-		  {{ if isset .Params "categories" }}
-		  categories:{{ range .Params.categories }}<a href="{{ $baseurl }}/categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
-		  {{ end }}
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">{{ .Date.Format "2006-01-02" }}</time>
+		            {{ $baseurl := .Site.BaseURL }}
+                    {{ if or .Params.tags .Params.categories .Params.series }}
+                    |
+                    {{ end }}
+                    {{ if isset .Params "tags" }}
+                    tags:{{ range .Params.tags }}<a href="{{ $baseurl }}tags/{{ . | urlize }}">{{ . }}</a> {{ end }}
+                    {{ end }}
 
-		  {{ if isset .Params "series" }}
-		  series:{{ range .Params.series }}<a href="{{ $baseurl }}/series/{{ . | urlize }}">{{ . }}</a> {{ end }}
-		  {{ end }}
+                    {{ if isset .Params "categories" }}
+                    categories:{{ range .Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
+                    {{ end }}
 
-		</p>
-		<h5>{{ .Title }}</h5>
-	  </div>
+                    {{ if isset .Params "series" }}
+                    series:{{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}
+                    {{ end }}
+                </p>
+                <h1>{{ .Title }}</h1>
+            </div>
 
-	  <div class="post">
-		{{ .Content }}
-    <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="dceoy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-	  </div>
+            <div class="post-content">
+                {{ .Content }}
+                <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="dceoy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+            </div>
+        </div>
 	</div>
-  </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
 </div>
 
 {{ partial "footer.html" . }}
