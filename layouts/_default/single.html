@@ -31,7 +31,20 @@
             </div>
 
             <div class="post-content">
+                <script type="text/x-mathjax-config">
+                  MathJax.Hub.Config({
+                    tex2jax: {
+                      inlineMath: [['$','$'], ['\\(','\\)']],
+                      displayMath: [['$$','$$'], ['\[','\]']],
+                      processEscapes: true,
+                      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'h5'],
+                    }
+                  });
+                </script>
+                <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
                 {{ .Content }}
+
                 <p><a href="https://twitter.com/share" class="twitter-share-button" data-via="dceoy">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
             </div>
         </div>
